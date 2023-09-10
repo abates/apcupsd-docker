@@ -1,0 +1,33 @@
+#!/bin/bash
+
+cat <<EOT>/etc/apcupsd/apcupsd.conf
+UPSCABLE usb
+UPSTYPE usb
+DEVICE $UPS_DEVICE
+LOCKFILE /var/lock
+SCRIPTDIR /etc/apcupsd
+PWRFAILDIR /etc/apcupsd
+NOLOGINDIR /etc
+ONBATTERYDELAY 6
+BATTERYLEVEL 5
+MINUTES 3
+TIMEOUT 0
+ANNOY 300
+ANNOYDELAY 60
+NOLOGON disable
+KILLDELAY 0
+NETSERVER on
+NISIP 0.0.0.0
+NISPORT 3551
+EVENTSFILE /dev/stdout
+EVENTSFILEMAX 10
+UPSCLASS standalone
+UPSMODE disable
+STATTIME 0
+STATFILE /dev/stdout
+LOGSTATS off
+DATATIME 0
+EOT
+
+/sbin/apcupsd -b
+
