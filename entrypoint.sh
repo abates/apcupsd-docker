@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cat <<EOT>/etc/apcupsd/apcupsd.conf
+## apcupsd.conf v1.1 ##
 UPSCABLE usb
 UPSTYPE usb
 DEVICE $UPS_DEVICE
@@ -17,7 +18,7 @@ ANNOYDELAY 60
 NOLOGON disable
 KILLDELAY 0
 NETSERVER on
-NISIP 0.0.0.0
+NISIP 127.0.0.1
 NISPORT 3551
 EVENTSFILE /dev/stdout
 EVENTSFILEMAX 10
